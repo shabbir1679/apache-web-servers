@@ -2,7 +2,7 @@ Creating a new web application infrastructure in AWS.  This web application will
 
 Using HashiCorp's Terraform, creating all required objects to fulfill the requirements to provide external access and ensure availability. 
 
-Description:
+**Description:**
 1)    Only the us-east-1 region is available
 1)    Using publicly available AMI 'Apache Web Server, id: ami-26950f4f, or other alternative web server.
 2)    Utilizing the t2.micro instance type
@@ -10,14 +10,16 @@ Description:
 4)    Exposing the server externally such that only ingress traffic on port 80/443 is allowed.  Egress traffic is unrestricted.
 5)    Creating user-based S3 role that provides read/write access to a specific S3 bucket named s3-bucket
 
-How to run this code?
+**How to run this code?**
 
-terraform plan -var 'key_name={your_key_name}'
-For apply phase
+To Apply:
+*terraform plan -var 'key_name={your_key_name}'*
 
-terraform apply -var 'key_name={your_key_name}'
-Once the stack is created, wait for few minutes and test the stack by launching a browser with ELB url.
+After applying, please wait for a few mins before hitting the ELB since it takes a minute or so for the instances to show InService under ELB:
 
-To remove the stack
+*terraform apply -var 'key_name={your_key_name}'*
 
- terraform destroy -var 'key_name={your_key_name}'
+
+To destroy the environment:
+
+*terraform destroy -var 'key_name={your_key_name}'*
